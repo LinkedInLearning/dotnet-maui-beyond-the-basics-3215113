@@ -4,14 +4,18 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiBeyond"
-    Shell.FlyoutBehavior="Flyout">
-
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="Black">
     <ShellContent
         Title="Grid"
-        ContentTemplate="{DataTemplate local:GridPage}"
-        Route="GridPage" />
+        ContentTemplate="{DataTemplate local:GridPage}" />
     <ShellContent
         Title="Stack"
-        ContentTemplate="{DataTemplate local:StackPage}"
-        Route="StackPage" />
+        ContentTemplate="{DataTemplate local:StackPage}" />
+    <ShellContent
+        Title="Flex"
+        ContentTemplate="{DataTemplate local:FlexPage}" />
+    <ShellContent
+        Title="Flex List"
+        ContentTemplate="{DataTemplate local:FlexListPage}" />
 </Shell>

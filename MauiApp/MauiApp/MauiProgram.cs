@@ -1,4 +1,6 @@
-﻿namespace MauiBeyond;
+﻿using MauiBeyond.ViewModels;
+
+namespace MauiBeyond;
 
 public static class MauiProgram
 {
@@ -13,6 +15,14 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+        builder.Services.AddSingleton<AppShell>();
+        builder.Services.AddTransient<GridPage>();
+        builder.Services.AddTransient<StackPage>();
+        builder.Services.AddTransient<FlexPage>();
+        builder.Services.AddTransient<FlexListPage>();
+
+        builder.Services.AddTransient<FlexListViewModel>();
+
+        return builder.Build();
 	}
 }
