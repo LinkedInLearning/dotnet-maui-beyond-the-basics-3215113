@@ -4,5 +4,19 @@
              x:Class="MauiBeyond.FlexListPage"
              Title="Flex List"
              BackgroundColor="DarkGray">
-
+    <FlexLayout Wrap="Wrap"
+                JustifyContent="Start"
+                AlignContent="Start"
+             BindableLayout.ItemsSource="{Binding Path=FlexList}">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <Frame BackgroundColor="Blue" HeightRequest="100" >
+                    <StackLayout>
+                        <Label Text="{Binding Path=Name}" />
+                        <Label Text="{Binding Path=Title}" />
+                    </StackLayout>
+                </Frame>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </FlexLayout>
 </ContentPage>
