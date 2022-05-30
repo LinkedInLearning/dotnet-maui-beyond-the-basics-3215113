@@ -21,4 +21,7 @@
     <ShellContent
         Title="Absolute"
         ContentTemplate="{DataTemplate local:AbsolutePage}" />
+    <ShellContent
+        Title="Table View"
+        ContentTemplate="{DataTemplate local:TableViewPage}" />
 </Shell>

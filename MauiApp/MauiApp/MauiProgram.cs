@@ -21,6 +21,7 @@ public static class MauiProgram
         builder.Services.AddTransient<FlexPage>();
         builder.Services.AddTransient<FlexListPage>();
         builder.Services.AddTransient<AbsolutePage>();
+        builder.Services.AddTransient<TableViewPage>();
 
         builder.Services.AddTransient<FlexListViewModel>();
 
