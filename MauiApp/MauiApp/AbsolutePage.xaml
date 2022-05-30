@@ -3,4 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.AbsolutePage"
              Title="Absolute">
+    <AbsoluteLayout>
+        <Image Source="trouble_cat.jpg" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All"
+               AbsoluteLayout.LayoutBounds="0,0,1,1" />
+        <Label Text="Trouble the cat" AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" 
+               AbsoluteLayout.LayoutBounds="0,1,1,50" 
+               BackgroundColor="#85000000" />
+    </AbsoluteLayout>
 </ContentPage>
