@@ -4,4 +4,24 @@
              x:Class="MauiBeyond.TableViewPage"
              Title="TableViewPage"
              BackgroundColor="Gray">
+    <TableView Intent="Form" RowHeight="100">
+        <TableRoot>
+            <TableSection Title="Section 1">
+                <SwitchCell Text="Question 1" />
+                <EntryCell Label="Expand on question 1"  />
+            </TableSection>
+            <TableSection Title="Section 2">
+                <SwitchCell Text="Question 2" />
+                <EntryCell Label="Expand on question 2" />
+            </TableSection>
+            <TableSection Title="Section 3">
+                <SwitchCell Text="Question 3" />
+                <EntryCell Label="Expand on question 3" />
+            </TableSection>
+            <TableSection Title="Section 4">
+                <SwitchCell Text="Question 4" />
+                <EntryCell Label="Expand on question 4" />
+            </TableSection>
+        </TableRoot>
+    </TableView>
 </ContentPage>
