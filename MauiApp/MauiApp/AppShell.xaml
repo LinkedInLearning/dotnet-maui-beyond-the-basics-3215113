@@ -7,21 +7,6 @@
     Shell.FlyoutBehavior="Flyout"
     FlyoutBackgroundColor="Black">
     <ShellContent
-        Title="Grid"
-        ContentTemplate="{DataTemplate local:GridPage}" />
-    <ShellContent
-        Title="Stack"
-        ContentTemplate="{DataTemplate local:StackPage}" />
-    <ShellContent
-        Title="Flex"
-        ContentTemplate="{DataTemplate local:FlexPage}" />
-    <ShellContent
-        Title="Flex List"
-        ContentTemplate="{DataTemplate local:FlexListPage}" />
-    <ShellContent
-        Title="Absolute"
-        ContentTemplate="{DataTemplate local:AbsolutePage}" />
-    <ShellContent
-        Title="Table View"
-        ContentTemplate="{DataTemplate local:TableViewPage}" />
+        Title="Challenge 1"
+        ContentTemplate="{DataTemplate local:Challenge1Page}" />
 </Shell>
