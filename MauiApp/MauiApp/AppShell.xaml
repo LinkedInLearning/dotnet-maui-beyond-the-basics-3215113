@@ -4,9 +4,30 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiBeyond"
-    Shell.FlyoutBehavior="Flyout"
-    FlyoutBackgroundColor="Black">
-    <ShellContent
-        Title="Challenge 1"
-        ContentTemplate="{DataTemplate local:Challenge1Page}" />
+    FlyoutBehavior="Flyout">
+    <FlyoutItem
+        Title="Landing Page">
+        
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:LandingPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem
+        Title="Flex Layout">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:FlexLayoutPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem
+        Title="List View">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:ListViewPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem
+        Title="Collection View">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:CollectionViewPage}" />
+        </Tab>
+    </FlyoutItem>
 </Shell>

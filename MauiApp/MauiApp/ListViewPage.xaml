@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBeyond.ListViewPage"
+             Title="ListView Page">
+    <ListView  ItemsSource="{Binding Names}" SelectionMode="None" CachingStrategy="RecycleElementAndDataTemplate" RowHeight="60">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <Frame BorderColor="Black">
+                            <Label Text="{Binding .}" TextColor="Black" HeightRequest="50" VerticalTextAlignment="Center" />
+                        </Frame>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
