@@ -64,21 +64,9 @@
 	  <Compile Update="CollectionViewPage.xaml.cs">
 	    <DependentUpon>CollectionViewPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="FlexLayoutPage.xaml.cs">
-	    <DependentUpon>FlexLayoutPage.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="FlexLayoutPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="LandingPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="ListViewPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="CollectionViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

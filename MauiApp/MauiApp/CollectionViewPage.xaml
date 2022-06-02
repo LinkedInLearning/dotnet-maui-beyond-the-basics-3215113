@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.CollectionViewPage"
              Title="CollectionView Page">
-    <CollectionView  ItemsSource="{Binding Names}" SelectionMode="None" RemainingItemsThreshold="20" RemainingItemsThresholdReachedCommand="{Binding MoreDataCommand}" >
+    <CollectionView  ItemsSource="{Binding Names}" SelectionMode="None"  >
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame BorderColor="Black">

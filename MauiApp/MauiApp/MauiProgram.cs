@@ -17,14 +17,9 @@ public static class MauiProgram
 			});
 
         builder.Services.AddSingleton<AppShell>();
-        builder.Services.AddTransient<LandingPage>();
-        builder.Services.AddTransient<FlexLayoutPage>();
-        builder.Services.AddTransient<ListViewPage>();
-        builder.Services.AddTransient<CollectionViewPage>();
-        
+        builder.Services.AddTransient<CollectionViewPage>();   
 
         builder.Services.AddTransient<PagedCollectionViewModel>();
-        builder.Services.AddTransient<ListViewModel>();
 
         builder.Services.AddSingleton<NamesService>();
 

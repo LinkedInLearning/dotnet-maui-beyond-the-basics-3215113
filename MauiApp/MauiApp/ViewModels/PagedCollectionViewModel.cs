@@ -1,12 +1,5 @@
-﻿using MauiBeyond.Models;
-using MauiBeyond.Services;
-using System;
-using System.Collections.Generic;
+﻿using MauiBeyond.Services;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace MauiBeyond.ViewModels
 {
@@ -14,15 +7,13 @@ namespace MauiBeyond.ViewModels
     {
         private NamesService _namesService;
         private IEnumerable<string> _namesData;
-        private int _currentPosition = 0;
-        private const int PAGE_SIZE = 100;
 
         public PagedCollectionViewModel(NamesService namesService)
         {
             _namesService = namesService;
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             LoadList();
-
-            //var result = FilePicker.Default.PickAsync();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
         private ObservableCollection<string> _names = new ObservableCollection<string>();
@@ -43,29 +34,19 @@ namespace MauiBeyond.ViewModels
         private async Task LoadList()
         {
             _namesData = await _namesService.GetNamesEnumerable();
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 GetMoreData();
             });
-        }
-
-        private ICommand _MoreDataCommand;
-
-        public ICommand MoreDataCommand
-        {
-            get { return _MoreDataCommand??= new Command(GetMoreData); }
         }
 
         private void GetMoreData()
         {
             if (_namesData != null)
             {
-                var dataToLoad = _namesData.Skip(_currentPosition).Take(PAGE_SIZE);
-
-                foreach (var name in dataToLoad)
+                foreach (var name in _namesData)
                 {
                     Names.Add(name);
-                    _currentPosition += 1;
                 }
             }
         }
