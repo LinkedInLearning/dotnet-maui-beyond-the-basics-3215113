@@ -1,5 +1,6 @@
 ﻿using MauiBeyond.Services;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace MauiBeyond.ViewModels
 {
@@ -7,6 +8,8 @@ namespace MauiBeyond.ViewModels
     {
         private NamesService _namesService;
         private IEnumerable<string> _namesData;
+        private int _currentPosition = 0;
+        private const int PAGE_SIZE = 100;
 
         public PagedCollectionViewModel(NamesService namesService)
         {
@@ -44,11 +47,21 @@ namespace MauiBeyond.ViewModels
         {
             if (_namesData != null)
             {
-                foreach (var name in _namesData)
+                var dataToLoad = _namesData.Skip(_currentPosition).Take(PAGE_SIZE);
+
+                foreach (var name in dataToLoad)
                 {
                     Names.Add(name);
+                    _currentPosition += 1;
                 }
             }
         }
+
+        private ICommand _MoreDataCommand;
+        public ICommand MoreDataCommand
+        {
+            get { return _MoreDataCommand ??= new Command(GetMoreData); }
+        }
+
     }
 }
