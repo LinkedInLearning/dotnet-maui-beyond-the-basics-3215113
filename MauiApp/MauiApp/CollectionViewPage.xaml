@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiBeyond.ViewModels"
              x:Class="MauiBeyond.CollectionViewPage"
              Title="CollectionView Page">
-    <CollectionView  ItemsSource="{Binding ListItems}" SelectionMode="None" Header="{Binding .}" Footer="{Binding .}">
-        <CollectionView.HeaderTemplate>
+    <CollectionView  ItemsSource="{Binding ListItemGroups}" IsGrouped="True">
+        <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
-                <Label BackgroundColor="DarkGray" HeightRequest="30" VerticalTextAlignment="Center" Padding="10, 0, 10, 0" Text="{Binding TeamName}" FontAttributes="Bold" />
+                <Frame BorderColor="Black" Padding="0" BackgroundColor="Gray">
+                    <Label Text="{Binding Category}"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Padding="10, 0, 10, 0">
+                    </Label>
+                </Frame>
             </DataTemplate>
-        </CollectionView.HeaderTemplate>
-        <CollectionView.FooterTemplate>
+        </CollectionView.GroupHeaderTemplate>
+        <CollectionView.GroupFooterTemplate>
             <DataTemplate>
-                <Label BackgroundColor="DarkGray" HeightRequest="30" VerticalTextAlignment="Center" Padding="10, 0, 10, 0" Text="{Binding CompanyName}" FontAttributes="Bold" />
+                <Label Text= "{Binding Location, StringFormat='Location: {0}'}" FontAttributes="Italic" />
             </DataTemplate>
-        </CollectionView.FooterTemplate>
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
-        </CollectionView.ItemsLayout>
+        </CollectionView.GroupFooterTemplate>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BorderColor="Black">
+                <Frame BorderColor="Black" >
                     <StackLayout>
                         <Label Text="{Binding Name}" />
                         <Label Text="{Binding Title}" />

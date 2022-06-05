@@ -1,5 +1,7 @@
 ﻿using MauiBeyond.Models;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Input;
 
 namespace MauiBeyond.ViewModels
 {
@@ -10,68 +12,87 @@ namespace MauiBeyond.ViewModels
             LoadList();
         }
 
-        private ObservableCollection<FlexListItem> _listItems = new ObservableCollection<FlexListItem>();
+        private ObservableCollection<ListItemGroup> _listItemGroups = new ObservableCollection<ListItemGroup>();
 
-        public ObservableCollection<FlexListItem> ListItems
+        public ObservableCollection<ListItemGroup> ListItemGroups
         {
-            get { return _listItems; }
-            private set 
+            get { return _listItemGroups; }
+            private set
             {
-                if (_listItems != value)
+                if (_listItemGroups != value)
                 {
-                    _listItems = value;
-                    OnPropertyChanged(nameof(ListItems));
+                    _listItemGroups = value;
+                    OnPropertyChanged(nameof(ListItemGroups));
                 }
             }
         }
 
-        public string TeamName
-        {
-            get { return "My Project Team"; }
-        }
-
-        public string CompanyName
-        {
-            get { return "LinkedIn Learning"; }
-        }
-
         private void LoadList()
         {
-            ListItems.Add(new FlexListItem
+            ListItemGroups = new ObservableCollection<ListItemGroup>(RetrieveListItems());
+        }
+
+        // Simulate call to retrieve data items
+        private List<ListItemGroup> RetrieveListItems()
+        {
+            var returnValue = new List<ListItemGroup>();
+
+            var group = new ListItemGroup
+            {
+                Category = "Leadership",
+                Location = "Remote"
+            };
+            group.Add(new ListItem
             {
                 Name = "Aaron Otis",
-                Title = "Dev Lead"
+                Title = "Dev Lead",
             });
-            ListItems.Add(new FlexListItem
+            group.Add(new ListItem
             {
                 Name = "Reed Martins",
                 Title = "Designer"
             });
-            ListItems.Add(new FlexListItem
+            group.Add(new ListItem
             {
                 Name = "Mary Montgomery",
                 Title = "Architect"
             });
-            ListItems.Add(new FlexListItem
+            returnValue.Add(group);
+            group = new ListItemGroup
+            {
+                Category = "Developers",
+                Location = "Manila",
+            };
+
+            group.Add(new ListItem
             {
                 Name = "Brad Billings",
                 Title = "Developer"
             });
-            ListItems.Add(new FlexListItem
+            group.Add(new ListItem
             {
                 Name = "Tosha Terrance",
                 Title = "Developer"
             });
-            ListItems.Add(new FlexListItem
+            group.Add(new ListItem
             {
                 Name = "Regina Price",
                 Title = "Developer"
             });
-            ListItems.Add(new FlexListItem
+            returnValue.Add(group);
+            group = new ListItemGroup
+            {
+                Category = "QA",
+                Location = "Mumbai"
+            };
+            group.Add(new ListItem
             {
                 Name = "Lewis Rodrigez",
-                Title = "QA"
+                Title = "QA Engineer"
             });
+            returnValue.Add(group);
+
+            return returnValue;
         }
     }
 }

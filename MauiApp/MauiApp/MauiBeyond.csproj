@@ -56,11 +56,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="CollectionViewPage.xaml.cs">
 	    <DependentUpon>CollectionViewPage.xaml</DependentUpon>
 	  </Compile>

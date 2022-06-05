@@ -1,7 +1,7 @@
 ﻿
 namespace MauiBeyond.Models
 {
-    public class FlexListItem
+    public class ListItem
     {
         public string Name { get; set; }
 
