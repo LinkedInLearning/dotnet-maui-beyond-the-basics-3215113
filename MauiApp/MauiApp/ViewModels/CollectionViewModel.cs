@@ -7,6 +7,8 @@ namespace MauiBeyond.ViewModels
 {
     public class CollectionViewModel : BaseViewModel
     {
+        private List<ListItemGroup> _retrievedItems;
+
         public CollectionViewModel()
         {
             LoadList();
@@ -29,7 +31,45 @@ namespace MauiBeyond.ViewModels
 
         private void LoadList()
         {
-            ListItemGroups = new ObservableCollection<ListItemGroup>(RetrieveListItems());
+            _retrievedItems = RetrieveListItems();
+            ListItemGroups.Clear();
+            foreach (var group in _retrievedItems)
+            {
+                ListItemGroups.Add(group.Clone());
+            }
+        }
+
+        private ICommand _toggleGroupDisplayCommand;
+        public ICommand ToggleGroupDisplay
+        {
+            get
+            {
+                return _toggleGroupDisplayCommand ??= new Command<string>((string groupName) => { ToggleGroupVisibility(groupName); });
+            }
+        }
+
+        private void ToggleGroupVisibility(string categoryName)
+        {
+            if (!string.IsNullOrEmpty(categoryName) && ListItemGroups != null &&
+                _retrievedItems != null)
+            {
+                var displayGroup = ListItemGroups.SingleOrDefault(g => g.Category == categoryName);
+                var sourceGroup = _retrievedItems.SingleOrDefault(g => g.Category == categoryName);
+                if (displayGroup != null && sourceGroup != null)
+                {
+                    if (displayGroup.Any())
+                    {
+                        displayGroup.Clear();
+                    }
+                    else if (sourceGroup.Any())
+                    {
+                        foreach (var item in sourceGroup)
+                        {
+                            displayGroup.Add(item);
+                        }
+                    }
+                }
+            }
         }
 
         // Simulate call to retrieve data items

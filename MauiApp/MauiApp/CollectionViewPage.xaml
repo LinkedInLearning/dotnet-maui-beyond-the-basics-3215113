@@ -8,6 +8,9 @@
         <CollectionView.GroupHeaderTemplate>
             <DataTemplate>
                 <Frame BorderColor="Black" Padding="0" BackgroundColor="Gray">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CollectionViewModel}}, Path=ToggleGroupDisplay}" CommandParameter="{Binding Category}" />
+                    </Frame.GestureRecognizers>
                     <Label Text="{Binding Category}"
                            FontSize="18"
                            FontAttributes="Bold"
