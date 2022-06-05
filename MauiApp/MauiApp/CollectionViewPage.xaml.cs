@@ -4,7 +4,7 @@ namespace MauiBeyond;
 
 public partial class CollectionViewPage : ContentPage
 {
-	public CollectionViewPage(PagedCollectionViewModel pageCollectionViewModel)
+	public CollectionViewPage(CollectionViewModel pageCollectionViewModel)
 	{
 		InitializeComponent();
 
