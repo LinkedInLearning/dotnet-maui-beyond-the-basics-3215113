@@ -3,7 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.CollectionViewPage"
              Title="CollectionView Page">
-    <CollectionView  ItemsSource="{Binding ListItems}" SelectionMode="None">
+    <CollectionView  ItemsSource="{Binding ListItems}" SelectionMode="None" Header="{Binding .}" Footer="{Binding .}">
+        <CollectionView.HeaderTemplate>
+            <DataTemplate>
+                <Label BackgroundColor="DarkGray" HeightRequest="30" VerticalTextAlignment="Center" Padding="10, 0, 10, 0" Text="{Binding TeamName}" FontAttributes="Bold" />
+            </DataTemplate>
+        </CollectionView.HeaderTemplate>
+        <CollectionView.FooterTemplate>
+            <DataTemplate>
+                <Label BackgroundColor="DarkGray" HeightRequest="30" VerticalTextAlignment="Center" Padding="10, 0, 10, 0" Text="{Binding CompanyName}" FontAttributes="Bold" />
+            </DataTemplate>
+        </CollectionView.FooterTemplate>
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+        </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame BorderColor="Black">
