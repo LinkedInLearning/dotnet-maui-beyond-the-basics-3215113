@@ -1,4 +1,5 @@
-﻿using MauiBeyond.Services;
+﻿using MauiBeyond.Models;
+using MauiBeyond.Services;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -9,7 +10,7 @@ namespace MauiBeyond.ViewModels
         private NamesService _namesService;
         private IEnumerable<string> _namesData;
         private int _currentPosition = 0;
-        private const int PAGE_SIZE = 100;
+        private const int PAGE_SIZE = 200;
 
         public PagedCollectionViewModel(NamesService namesService)
         {
@@ -19,9 +20,9 @@ namespace MauiBeyond.ViewModels
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
-        private ObservableCollection<string> _names = new ObservableCollection<string>();
+        private ObservableCollection<NameList> _names = new ObservableCollection<NameList>();
 
-        public ObservableCollection<string> Names
+        public ObservableCollection<NameList> Names
         {
             get { return _names; }
             private set 
@@ -47,13 +48,30 @@ namespace MauiBeyond.ViewModels
         {
             if (_namesData != null)
             {
-                var dataToLoad = _namesData.Skip(_currentPosition).Take(PAGE_SIZE);
-
-                foreach (var name in dataToLoad)
+                Task.Run(() =>
                 {
-                    Names.Add(name);
-                    _currentPosition += 1;
-                }
+                    var dataToLoad = _namesData.Skip(_currentPosition).Take(PAGE_SIZE);
+
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        foreach (var name in dataToLoad)
+                        {
+                            if (name.Length > 0)
+                            {
+                                if (!Names.Any(n => n.StartingLetter == name.Substring(0, 1)))
+                                {
+                                    var nameList = new NameList();
+                                    nameList.StartingLetter = name.Substring(0, 1).ToUpper();
+                                    Names.Add(nameList);
+                                }
+                                var nameListItem = new NameListItem();
+                                nameListItem.Name = name;
+                                Names.Single(n => n.StartingLetter == name.Substring(0, 1)).Add(nameListItem);
+                            }
+                            _currentPosition += 1;
+                        }
+                    });
+                });
             }
         }
 

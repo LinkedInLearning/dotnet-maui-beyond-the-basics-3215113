@@ -25,12 +25,6 @@ namespace MauiBeyond.Services
             await CreateDBFileIfNeeded();
             return new NameEnumerable();
         }
-
-        public async Task<List<string>> GetAllNames()
-        {
-            await CreateDBFileIfNeeded();
-            return new NameEnumerable().ToList<string>();
-        }
     }
 
     // The use of the NameEnumerable and NameEnumerator are to
@@ -58,7 +52,7 @@ namespace MauiBeyond.Services
 
     internal class NameEnumerator : IEnumerator<string>, IDisposable
     {
-        private const int PAGE_SIZE = 100;
+        private const int PAGE_SIZE = 200;
         private int _currentPosition = 0;
         private int _currentRecordInPage = 0;
         private List<string> _currentNamePage;
@@ -74,7 +68,7 @@ namespace MauiBeyond.Services
 
             using (var cn = new SQLiteConnection($"{FileSystem.AppDataDirectory}/names.sqlite3"))
             {
-                var result = cn.Table<Names>().Skip(_currentPosition).Take(PAGE_SIZE);
+                var result = cn.Table<Names>().OrderBy(n => n.Name).Skip(_currentPosition).Take(PAGE_SIZE);
                 _currentNamePage = new List<string>();
 
                 foreach (var record in result)
