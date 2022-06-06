@@ -3,4 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.CollectionViewPage"
              Title="CollectionView Page">
+    <CollectionView ItemsSource="{Binding Names}" SelectionMode="None" 
+                    RemainingItemsThreshold="50"
+                    RemainingItemsThresholdReachedCommand="{Binding MoreDataCommand}" IsGrouped="True" ItemsLayout="VerticalGrid, 3" >
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Frame BorderColor="Black" BackgroundColor="Gray">
+                    <Label Text="{Binding StartingLetter}" />
+                </Frame>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame BorderColor="Black" HeightRequest="80">
+                    <Label Text="{Binding Name}" />
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
