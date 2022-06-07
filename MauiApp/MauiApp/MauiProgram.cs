@@ -1,5 +1,4 @@
-﻿using MauiBeyond.Services;
-using MauiBeyond.ViewModels;
+﻿using MauiBeyond.ViewModels;
 
 namespace MauiBeyond;
 
@@ -17,11 +16,10 @@ public static class MauiProgram
 			});
 
         builder.Services.AddSingleton<AppShell>();
-        builder.Services.AddTransient<CollectionViewPage>();   
+        builder.Services.AddTransient<MainViewPage>();   
 
-        builder.Services.AddTransient<PagedCollectionViewModel>();
+        builder.Services.AddTransient<MainViewModel>();
 
-        builder.Services.AddSingleton<NamesService>();
 
         return builder.Build();
 	}

@@ -6,6 +6,6 @@
     xmlns:local="clr-namespace:MauiBeyond">
     <ShellContent
         Title="Landing Page" 
-        ContentTemplate="{DataTemplate local:CollectionViewPage}" >
+        ContentTemplate="{DataTemplate local:MainViewPage}" >
     </ShellContent>
 </Shell>
