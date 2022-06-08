@@ -2,10 +2,12 @@ using MauiBeyond.ViewModels;
 
 namespace MauiBeyond;
 
-public partial class MainViewPage : BasePage<MainViewModel>
+public partial class MainViewPage : ContentPage
 {
-	public MainViewPage(MainViewModel pageCollectionViewModel) : base(pageCollectionViewModel)
+	public MainViewPage(MainViewModel pageCollectionViewModel)
     {
+        BindingContext = pageCollectionViewModel;
+
         InitializeComponent();
     }
 }

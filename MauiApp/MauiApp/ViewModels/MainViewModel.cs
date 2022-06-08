@@ -9,18 +9,18 @@ namespace MauiBeyond.ViewModels
         public MainViewModel()
         {
         }
+        
+        private string _someXML = "<MyNode>value I want</MyNode>";
 
-        private string _name = "Some Name";
-
-        public string Name
+        public string SomeXML
         {
-            get => _name;
+            get => _someXML;
             set
             {
-                if (_name != value)
+                if (_someXML != value)
                 {
-                    _name = value;
-                    OnPropertyChanged(nameof(Name));
+                    _someXML = value;
+                    OnPropertyChanged(nameof(SomeXML));
                 }
             }
         }
