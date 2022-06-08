@@ -6,7 +6,15 @@
              xmlns:views="clr-namespace:MauiBeyond.Views;assembly=MauiBeyond.Views"
              Title="MainView Page">
     <VerticalStackLayout>
-        <views:AddressView Name="{Binding Name}" />
-        <nameviews:NameView Name="{Binding Name}" />
+        <views:AddressView Name="{Binding Name}" x:FactoryMethod="CreateAddressView">
+            <x:Arguments>
+                <x:String>Enter the Employee Name</x:String>
+            </x:Arguments>        
+        </views:AddressView>
+        <nameviews:NameView Name="{Binding Name}">
+            <x:Arguments>
+                <x:String>Employee Name:</x:String>
+            </x:Arguments>
+        </nameviews:NameView>
     </VerticalStackLayout>
 </ContentPage>
