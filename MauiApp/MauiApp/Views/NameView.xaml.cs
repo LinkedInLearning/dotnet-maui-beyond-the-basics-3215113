@@ -2,9 +2,10 @@ namespace MauiBeyond.Views;
 
 public partial class NameView : ContentView
 {
-	public NameView()
+	public NameView(string prompt)
 	{
-		InitializeComponent();
+        Prompt = prompt;
+        InitializeComponent();
 	}
 
     public static readonly BindableProperty NameProperty =
@@ -14,5 +15,14 @@ public partial class NameView : ContentView
     {
         get => (string)GetValue(NameProperty);
         set => SetValue(NameProperty, value);
+    }
+
+    public static readonly BindableProperty PromptProperty =
+    BindableProperty.Create(nameof(Prompt), typeof(string), typeof(AddressView), string.Empty, BindingMode.TwoWay);
+
+    public string Prompt
+    {
+        get => (string)GetValue(PromptProperty);
+        private set => SetValue(PromptProperty, value);
     }
 }

@@ -2,10 +2,19 @@ namespace MauiBeyond.Views;
 
 public partial class AddressView : ContentView
 {
-	public AddressView()
+	private AddressView()
 	{
 		InitializeComponent();
 	}
+
+    public static AddressView CreateAddressView(string namePlaceholder)
+    {
+        var addressView = new AddressView
+        {
+            NamePlaceholder = namePlaceholder
+        };
+        return addressView;
+    }
 
     public static readonly BindableProperty NameProperty =
 		BindableProperty.Create(nameof(Name), typeof(string), typeof(AddressView), string.Empty, BindingMode.TwoWay);
@@ -14,6 +23,15 @@ public partial class AddressView : ContentView
     {
 		get => (string)GetValue(NameProperty);
 		set => SetValue(NameProperty, value);
+    }
+
+    public static readonly BindableProperty NamePlaceholderProperty =
+    BindableProperty.Create(nameof(NamePlaceholder), typeof(string), typeof(AddressView), string.Empty, BindingMode.OneWay);
+
+    public string NamePlaceholder
+    {
+        get => (string)GetValue(NamePlaceholderProperty);
+        private set => SetValue(NamePlaceholderProperty, value);
     }
 
     public static readonly BindableProperty Address1Property =

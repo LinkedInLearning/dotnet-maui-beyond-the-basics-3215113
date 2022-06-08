@@ -25,5 +25,20 @@ namespace MauiBeyond.ViewModels
             }
         }
 
+        private string _namePrompt = "Employee Name:";
+
+        public string NamePrompt
+        {
+            get => _namePrompt;
+            set
+            {
+                if (_namePrompt != value)
+                {
+                    _namePrompt = value;
+                    OnPropertyChanged(nameof(NamePrompt));
+                }
+            }
+        }
+
     }
 }

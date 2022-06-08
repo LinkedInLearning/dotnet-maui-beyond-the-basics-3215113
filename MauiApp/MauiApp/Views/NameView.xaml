@@ -4,11 +4,12 @@
              x:Class="MauiBeyond.Views.NameView"
              x:Name="MainNameView">
     <HorizontalStackLayout>
-        <Label Text="Name: "
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+        <Label Text="{Binding Prompt, Source={x:Reference MainNameView}}"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"
+               Margin="0, 0, 10, 0" />
         <Label Text="{Binding Name, Source={x:Reference MainNameView}}"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
     </HorizontalStackLayout>
 </ContentView>

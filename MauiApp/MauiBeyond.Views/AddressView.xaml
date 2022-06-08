@@ -6,7 +6,7 @@
     <Frame BorderColor="Black" Padding="0, 0, 5, 0" Margin="5, 5, 5, 5">
         <Grid RowDefinitions="50, 50, 50, 50, 50" ColumnDefinitions="100, *, 50, 75">
             <Label Grid.Row="0" Grid.Column="0" Text="Name:" Padding="5, 10, 10, 0" />
-            <Entry Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Name, Source={x:Reference MainAddressView}}" />
+            <Entry Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Name, Source={x:Reference MainAddressView}}" Placeholder="{Binding NamePlaceholder, Source={x:Reference MainAddressView}}" />
             <Label Grid.Row="1" Grid.Column="0" Text="Address:" Padding="5, 10, 10, 0" />
             <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Address1, Source={x:Reference MainAddressView}}" />
             <Entry Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Address2, Source={x:Reference MainAddressView}}" />
