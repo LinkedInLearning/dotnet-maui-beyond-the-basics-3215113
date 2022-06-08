@@ -3,18 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.MainViewPage"
              xmlns:nameviews="clr-namespace:MauiBeyond.Views"
-             xmlns:views="clr-namespace:MauiBeyond.Views;assembly=MauiBeyond.Views"
              Title="MainView Page">
     <VerticalStackLayout>
-        <views:AddressView Name="{Binding Name}" x:FactoryMethod="CreateAddressView">
-            <x:Arguments>
-                <x:String>Enter the Employee Name</x:String>
-            </x:Arguments>        
-        </views:AddressView>
-        <nameviews:NameView Name="{Binding Name}">
-            <x:Arguments>
-                <x:String>Employee Name:</x:String>
-            </x:Arguments>
-        </nameviews:NameView>
+        <nameviews:NameView Name="{Binding Name}"/>
     </VerticalStackLayout>
 </ContentPage>
