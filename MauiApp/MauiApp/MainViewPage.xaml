@@ -4,8 +4,17 @@
              xmlns:views="clr-namespace:MauiBeyond.Views"
              x:Class="MauiBeyond.MainViewPage"
              Title="MainView Page">
-    <Grid ColumnDefinitions="75, *" RowDefinitions="50, *">
-        <Label Grid.Row="0" Grid.Column="0" Text="Name:" Margin="0,0,10,0" VerticalTextAlignment="Center" />
-        <views:ValidationEntry Grid.Row="0" Grid.Column="1" Placeholder="Enter value here" Text="{Binding Path=Name, Mode=TwoWay}" IsValid="{Binding Path=IsNameValid}" />
+    <Grid ColumnDefinitions="100, *" RowDefinitions="50, 50, 50, 50, 50, 50, *">
+        <Label Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Text="Name" VerticalTextAlignment="Center" />
+        <views:RequiredEntry Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name}" />
+        <Label Grid.Row="1" Grid.Column="0" Text="Address:" Margin="0,0,10,0" VerticalTextAlignment="Center" />
+        <views:RequiredEntry Grid.Row="1" Grid.Column="1" Text="{Binding Path=Address1}" />
+        <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Path=Address2}" />
+        <Label Grid.Row="3" Grid.Column="0" Text="City:" Margin="0,0,10,0" VerticalTextAlignment="Center" />
+        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Path=City}" />
+        <Label Grid.Row="4" Grid.Column="0" Text="State:" Margin="0,0,10,0" VerticalTextAlignment="Center" />
+        <Entry Grid.Row="4" Grid.Column="1" Text="{Binding Path=State}" />
+        <Label Grid.Row="5" Grid.Column="0" Text="Postal Code:" Margin="0,0,10,0" VerticalTextAlignment="Center" />
+        <Entry Grid.Row="5" Grid.Column="1" Text="{Binding Path=State}" Keyboard="Numeric" />
     </Grid>
 </ContentPage>
