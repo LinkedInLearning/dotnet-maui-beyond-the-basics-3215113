@@ -7,11 +7,8 @@ public partial class TitleLabel : Label
 		InitializeComponent();
 	}
 
-	public static TitleLabel CreateTitleLabel(string labelText)
+	public static TitleLabel CreateTitleLabel()
     {
-		return new TitleLabel
-		{
-			Text = labelText,
-		};
+		return new TitleLabel();
     }
 }
