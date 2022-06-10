@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Entry xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBeyond.Views.ValidationEntry">
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup x:Name="CommonStates">
+            <VisualState Name="Valid">
+                <VisualState.Setters>
+                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="PlaceholderColor" Value="Grey" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState Name="Invalid">
+                <VisualState.Setters>
+                    <Setter Property="TextColor" Value="Red" />
+                    <Setter Property="PlaceholderColor" Value="PaleVioletRed" />
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+</Entry>
