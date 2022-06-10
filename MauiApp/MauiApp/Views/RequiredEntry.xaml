@@ -5,5 +5,19 @@
              x:Name="RequiredEntryView">
     <Frame x:Name="mainFrame" Margin="0,0,0,0" Padding="0,0,0,0">
         <Entry x:Name="mainEntry" Text="{Binding Text, Source={x:Reference RequiredEntryView}}" />
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState Name="HasText">
+                    <VisualState.Setters>
+                        <Setter Property="BorderColor" Value="Transparent" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState Name="NoText">
+                    <VisualState.Setters>
+                        <Setter Property="BorderColor" Value="Red" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Frame>
 </ContentView>

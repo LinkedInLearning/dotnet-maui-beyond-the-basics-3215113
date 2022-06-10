@@ -83,6 +83,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Update="Prompts.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Prompts.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="MainViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -92,13 +99,6 @@
 	  <MauiXaml Update="Views\TitleLabel.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Update="Prompts.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Prompts.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiBeyondHideInfoBar="True" /></VisualStudio></ProjectExtensions>
