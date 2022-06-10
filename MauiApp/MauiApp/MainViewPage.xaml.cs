@@ -4,10 +4,11 @@ namespace MauiBeyond;
 
 public partial class MainViewPage : ContentPage
 {
-	public MainViewPage(MainViewModel pageCollectionViewModel)
+	public MainViewPage(MainViewModel mainViewModel)
     {
-        BindingContext = pageCollectionViewModel;
 
         InitializeComponent();
+
+        BindingContext = mainViewModel;
     }
 }

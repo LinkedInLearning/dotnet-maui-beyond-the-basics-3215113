@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:extensions="clr-namespace:MauiBeyond.Extensions"
              x:Class="MauiBeyond.MainViewPage"
              Title="MainView Page">
-    <VerticalStackLayout>
-        <Label Text="{extensions:XmlLoaderExtension TargetNode='MyNode', ResourceFile=MauiBeyond.SomeXml.xml}"/>
-    </VerticalStackLayout>
+    <Grid ColumnDefinitions="75, *" RowDefinitions="50, *">
+        <Label Grid.Row="0" Grid.Column="0" Text="Name:" Margin="0,0,10,0" VerticalTextAlignment="Center" />
+        <Entry Grid.Row="0" Grid.Column="1" Placeholder="Enter value here" Text="{Binding Path=Name, Mode=TwoWay}"/>
+    </Grid>
 </ContentPage>
