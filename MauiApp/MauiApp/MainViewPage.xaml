@@ -4,6 +4,6 @@
              x:Class="MauiBeyond.MainViewPage"
              Title="MainView Page">
     <VerticalStackLayout>
-        <Label Text="{Binding Path='SomeXml'}"/>
+        <Label Text="We want the value from the XML file here"/>
     </VerticalStackLayout>
 </ContentPage>
