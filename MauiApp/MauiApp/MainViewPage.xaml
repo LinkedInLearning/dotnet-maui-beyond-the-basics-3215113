@@ -7,7 +7,7 @@
              Title="MainView Page">
     <CollectionView ItemsSource="{Binding Addresses}">
         <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate> 
                 <Frame Margin="5, 1, 5, 1" Padding="5">
                     <Grid ColumnDefinitions="75, *, 50" RowDefinitions="30, 30, 30">
                         <Label Grid.Column="0" Grid.Row="0" Text="Address:" />
@@ -18,9 +18,9 @@
                             <Label Padding="0" Margin="0, 0, 5, 0"  Text="{Binding State}" />
                             <Label Padding="0" Margin="0"  Text="{Binding PostalCode}" />
                         </HorizontalStackLayout>
-                        <Image HeightRequest="30"  Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="Center">
+                        <Image HeightRequest="30" IsEnabled="{Binding Source={RelativeSource AncestorType=viewmodels:MainViewModel}, Path=CanDeleteAddresses}"  Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="Center">
                             <Image.GestureRecognizers>
-                                <TapGestureRecognizer />
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=viewmodels:MainViewModel}, Path=DeleteAddressCommand}" CommandParameter="{Binding .}" />
                             </Image.GestureRecognizers>
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
