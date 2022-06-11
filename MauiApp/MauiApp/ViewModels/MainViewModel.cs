@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using MauiBeyond.Models;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace MauiBeyond.ViewModels
@@ -8,92 +9,57 @@ namespace MauiBeyond.ViewModels
 
         public MainViewModel()
         {
+            Addresses.Add(new Address
+            {
+                Address1 = "221b Baker Street",
+                City = "London",
+                PostalCode = "NW1 6XE"
+            });
+            Addresses.Add(new Address
+            {
+                Address1 = "704 Hauser St.",
+                City = "New York",
+                State = "NY"
+            });
+            Addresses.Add(new Address
+            {
+                Address1 = "322 Maple St.",
+                City = "Mayberry",
+                State = "NC"
+            });
         }
 
-        private string _Name = String.Empty;
-        public string Name
+        private ObservableCollection<Address> _Addresses = new ObservableCollection<Address>();
+        public ObservableCollection<Address> Addresses
         {
-            get => _Name;
+            get => _Addresses;
             set
             {
-                if (_Name != value)
+                if (_Addresses != value)
                 {
-                    _Name = value;
-                    OnPropertyChanged(nameof(Name));
+                    _Addresses = value;
+                    OnPropertyChanged(nameof(Addresses));
                 }
             }
         }
 
-        private string _Address1 = String.Empty;
-        public string Address1
+        public bool CanDeleteAddresses
         {
-            get => _Address1;
-            set
-            {
-                if (_Address1 != value)
-                {
-                    _Address1 = value;
-                    OnPropertyChanged(nameof(Address1));
-                }
-            }
+            get => Addresses.Count > 1;
         }
 
-
-        private string _Address2 = String.Empty;
-        public string Address2
+        private ICommand _DeleteAddressCommand;
+        public ICommand DeleteAddressCommand
         {
-            get => _Address2;
-            set
-            {
-                if (_Address2 != value)
-                {
-                    _Address2 = value;
-                    OnPropertyChanged(nameof(Address2));
-                }
-            }
+            get { return _DeleteAddressCommand ??= new Command<Address>((address) => DeleteAddress(address)); }
         }
 
-        private string _City = String.Empty;
-        public string City
+        private void DeleteAddress(Address address)
         {
-            get => _City;
-            set
+            if (Addresses.Contains(address) && CanDeleteAddresses)
             {
-                if (_City != value)
-                {
-                    _City = value;
-                    OnPropertyChanged(nameof(City));
-                }
+                Addresses.Remove(address);
             }
         }
-
-        private string _State = String.Empty;
-        public string State
-        {
-            get => _State;
-            set
-            {
-                if (_State != value)
-                {
-                    _State = value;
-                    OnPropertyChanged(nameof(State));
-                }
-            }
-        }
-
-        private string _PostalCode = String.Empty;
-        public string PostalCode
-        {
-            get => _PostalCode;
-            set
-            {
-                if (_PostalCode != value)
-                {
-                    _PostalCode = value;
-                    OnPropertyChanged(nameof(PostalCode));
-                }
-            }
-        }
-
     }
 }

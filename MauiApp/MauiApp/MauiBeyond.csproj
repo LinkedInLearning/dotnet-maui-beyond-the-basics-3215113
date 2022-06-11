@@ -49,12 +49,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="Models\**" />
-	  <Compile Remove="Models\**" />
-	  <EmbeddedResource Remove="Models\**" />
-	  <MauiCss Remove="Models\**" />
-	  <MauiXaml Remove="Models\**" />
-	  <None Remove="Models\**" />
+	  <None Remove="Resources\Images\delete_black.png" />
+	  <None Remove="Resources\Images\delete_disabled.png" />
 	</ItemGroup>
 
 
@@ -77,9 +73,6 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Prompts.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\TitleLabel.xaml.cs">
-	    <DependentUpon>TitleLabel.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -91,12 +84,6 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="MainViewPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\RequiredEntry.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\TitleLabel.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

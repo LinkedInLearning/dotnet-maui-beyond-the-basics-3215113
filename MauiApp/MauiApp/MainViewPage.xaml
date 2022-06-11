@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:MauiBeyond.Views"
              xmlns:extensions="clr-namespace:MauiBeyond.Extensions"
+             xmlns:viewmodels="clr-namespace:MauiBeyond.ViewModels"
              x:Class="MauiBeyond.MainViewPage"
              Title="MainView Page">
-    <Grid ColumnDefinitions="100, *" RowDefinitions="50, 50, 50, 50, 50, 50, *">
-        <views:TitleLabel Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Text="{extensions:ResourceLoaderExtension ResourceFile=MauiBeyond.Prompts.resources, ResourceName=Address_Name}" VerticalTextAlignment="Center" x:FactoryMethod="CreateTitleLabel" />
-        <views:RequiredEntry Grid.Row="0" Grid.Column="1" Text="{Binding Path=Name}" />
-        <views:TitleLabel Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" Text="{extensions:ResourceLoaderExtension ResourceFile=MauiBeyond.Prompts.resources, ResourceName=Address_Title}" VerticalTextAlignment="Center" x:FactoryMethod="CreateTitleLabel" />
-        <views:RequiredEntry Grid.Row="1" Grid.Column="1" Text="{Binding Path=Address1}" />
-        <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Path=Address2}" />
-        <views:TitleLabel Grid.Row="3" Grid.Column="0" Margin="0,0,10,0" Text="{extensions:ResourceLoaderExtension ResourceFile=MauiBeyond.Prompts.resources, ResourceName=Address_City}" VerticalTextAlignment="Center" x:FactoryMethod="CreateTitleLabel" />
-        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Path=City}" />
-        <views:TitleLabel Grid.Row="4" Grid.Column="0" Margin="0,0,10,0" Text="{extensions:ResourceLoaderExtension ResourceFile=MauiBeyond.Prompts.resources, ResourceName=Address_State}" VerticalTextAlignment="Center" x:FactoryMethod="CreateTitleLabel" />
-        <Entry Grid.Row="4" Grid.Column="1" Text="{Binding Path=State}" />
-        <views:TitleLabel Grid.Row="5" Grid.Column="0" Margin="0,0,10,0" Text="{extensions:ResourceLoaderExtension ResourceFile=MauiBeyond.Prompts.resources, ResourceName=Address_PostalCode}" VerticalTextAlignment="Center" x:FactoryMethod="CreateTitleLabel" />
-        <Entry Grid.Row="5" Grid.Column="1" Text="{Binding Path=State}" Keyboard="Numeric" />
-    </Grid>
+    <CollectionView ItemsSource="{Binding Addresses}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Margin="5, 1, 5, 1" Padding="5">
+                    <Grid ColumnDefinitions="75, *, 50" RowDefinitions="30, 30, 30">
+                        <Label Grid.Column="0" Grid.Row="0" Text="Address:" />
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Address1}" />
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Address2}" />
+                        <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Spacing="0">
+                            <Label Padding="0, 0, 5, 0" Margin="0" Text="{Binding City, StringFormat='{0},'}" />
+                            <Label Padding="0" Margin="0, 0, 5, 0"  Text="{Binding State}" />
+                            <Label Padding="0" Margin="0"  Text="{Binding PostalCode}" />
+                        </HorizontalStackLayout>
+                        <Image HeightRequest="30"  Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer />
+                            </Image.GestureRecognizers>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Source" Value="delete_black.png" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Property="Source" Value="delete_disabled.png" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Image>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
