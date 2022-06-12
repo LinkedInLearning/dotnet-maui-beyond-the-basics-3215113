@@ -1,18 +1,67 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MauiBeyond.ViewModels"
              x:Class="MauiBeyond.MainViewPage"
-             Title="MainView Page">
-    <Grid ColumnDefinitions="*, 20" RowDefinitions="*, 50">
-        <Image Source="trouble.jpg" Grid.Row="0" Grid.Column="0" HeightRequest="{Binding Source={x:Reference HeightSlider}, Path=Value}" WidthRequest="{Binding Source={RelativeSource Self}, Path=WidthRequest}" Rotation="{Binding Source={x:Reference RotationSlider}, Path=Value}">
-            <Image.Shadow>
-                <Shadow Brush="Black"
-                Offset="20,20"
-                Radius="40"
-                Opacity="0.8" />
-            </Image.Shadow>
-        </Image>
-        <Slider x:Name="HeightSlider" Grid.Row="1" Grid.Column="0" Maximum="600" Minimum="50" Value="175" MaximumTrackColor="DarkGray" ZIndex="100" />
-        <Slider x:Name="RotationSlider" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Maximum="360" Minimum="0" Value="0" Rotation="270" WidthRequest="300" MaximumTrackColor="DarkGray" />
-    </Grid>
+             Title="MainView Page"
+             x:Name="MainView"
+             Shell.NavBarHasShadow="true">
+    <Shell.TitleView>
+        <AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+            <Image Source="add_white.png"
+                   HeightRequest="25"
+                   WidthRequest="25"
+                   Margin="0, 0, 10, 0"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                   AbsoluteLayout.LayoutBounds="1, .5">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="{Binding Source={x:Reference MainView}, Path=Title}" 
+                   TextColor="White" FontSize="18" FontAttributes="Bold"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                   AbsoluteLayout.LayoutBounds=".5, .5" />
+        </AbsoluteLayout>
+    </Shell.TitleView>
+    <CollectionView ItemsSource="{Binding Addresses}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Margin="5, 1, 5, 1" Padding="5">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Address_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnDefinitions="75, *, 50" RowDefinitions="30, 30, 30">
+                        <Label Grid.Column="0" Grid.Row="0" Text="Address:" />
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Address1}" />
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Address2}" />
+                        <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Spacing="0">
+                            <Label Padding="0, 0, 5, 0" Margin="0" Text="{Binding City, StringFormat='{0},'}" />
+                            <Label Padding="0" Margin="0, 0, 5, 0"  Text="{Binding State}" />
+                            <Label Padding="0" Margin="0"  Text="{Binding PostalCode}" />
+                        </HorizontalStackLayout>
+                        <Image HeightRequest="30"  Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="Center" IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=CanDeleteAddresses}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=DeleteAddressCommand}" CommandParameter="{Binding .}" />
+                            </Image.GestureRecognizers>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Source" Value="delete_black.png" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Property="Source" Value="delete_disabled.png" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Image>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

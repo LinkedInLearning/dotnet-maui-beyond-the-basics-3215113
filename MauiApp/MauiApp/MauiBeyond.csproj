@@ -49,7 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\Trouble.jpg" />
+	  <None Remove="Resources\Images\add_white.png" />
+	  <None Remove="Resources\Images\delete_black.png" />
+	  <None Remove="Resources\Images\delete_disabled.png" />
 	</ItemGroup>
 
 
@@ -60,10 +62,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="EditAddressPage.xaml.cs">
+	    <DependentUpon>EditAddressPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MainViewPage.xaml.cs">
 	    <DependentUpon>MainViewPage.xaml</DependentUpon>
 	  </Compile>
@@ -71,6 +77,9 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Prompts.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ErrorEntry.xaml.cs">
+	    <DependentUpon>ErrorEntry.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -82,7 +91,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="EditAddressPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MainViewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ErrorEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

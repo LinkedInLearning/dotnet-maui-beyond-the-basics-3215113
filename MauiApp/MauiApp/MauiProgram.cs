@@ -16,10 +16,11 @@ public static class MauiProgram
 			});
 
         builder.Services.AddSingleton<AppShell>();
-        builder.Services.AddTransient<MainViewPage>();   
+        builder.Services.AddTransient<MainViewPage>();
+        builder.Services.AddTransient<EditAddressPage>();
 
         builder.Services.AddTransient<MainViewModel>();
-
+        builder.Services.AddTransient<EditAddressViewModel>();
 
         return builder.Build();
 	}
