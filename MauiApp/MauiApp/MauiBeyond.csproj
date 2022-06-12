@@ -49,8 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\delete_black.png" />
-	  <None Remove="Resources\Images\delete_disabled.png" />
+	  <None Remove="Resources\Images\Trouble.jpg" />
 	</ItemGroup>
 
 
