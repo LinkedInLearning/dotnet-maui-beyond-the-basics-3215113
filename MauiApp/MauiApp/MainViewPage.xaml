@@ -4,7 +4,7 @@
              x:Class="MauiBeyond.MainViewPage"
              Title="MainView Page">
     <Grid ColumnDefinitions="*, 20" RowDefinitions="*, 50">
-        <Image Source="trouble.jpg" Grid.Row="0" Grid.Column="0">
+        <Image Source="trouble.jpg" Grid.Row="0" Grid.Column="0" HeightRequest="{Binding Source={x:Reference HeightSlider}, Path=Value}" WidthRequest="{Binding Source={RelativeSource Self}, Path=WidthRequest}" Rotation="{Binding Source={x:Reference RotationSlider}, Path=Value}">
             <Image.Shadow>
                 <Shadow Brush="Black"
                 Offset="20,20"
@@ -12,7 +12,7 @@
                 Opacity="0.8" />
             </Image.Shadow>
         </Image>
-        <Slider Grid.Row="1" Grid.Column="0" Maximum="600" Minimum="50" Value="175" MaximumTrackColor="DarkGray" ZIndex="100" />
-        <Slider Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Maximum="360" Minimum="0" Value="0" Rotation="270" WidthRequest="300" MaximumTrackColor="DarkGray" />
+        <Slider x:Name="HeightSlider" Grid.Row="1" Grid.Column="0" Maximum="600" Minimum="50" Value="175" MaximumTrackColor="DarkGray" ZIndex="100" />
+        <Slider x:Name="RotationSlider" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Maximum="360" Minimum="0" Value="0" Rotation="270" WidthRequest="300" MaximumTrackColor="DarkGray" />
     </Grid>
 </ContentPage>
