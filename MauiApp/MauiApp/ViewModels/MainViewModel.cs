@@ -1,4 +1,5 @@
-﻿using MauiBeyond.Models;
+﻿using MauiBeyond.Interfaces;
+using MauiBeyond.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -6,96 +7,96 @@ namespace MauiBeyond.ViewModels
 {
     public class MainViewModel : BaseViewModel, IQueryAttributable
     {
+        private IContactService _contactService;
 
-        public MainViewModel()
+        public MainViewModel(IContactService contactService)
         {
-            Addresses.Add(new Address
-            {
-                Id = Guid.NewGuid(),
-                Address1 = "221b Baker Street",
-                City = "London",
-                PostalCode = "NW1 6XE"
-            });
-            Addresses.Add(new Address
-            {
-                Id = Guid.NewGuid(),
-                Address1 = "704 Hauser St.",
-                City = "New York",
-                State = "NY"
-            });
-            Addresses.Add(new Address
-            {
-                Id = Guid.NewGuid(),
-                Address1 = "322 Maple St.",
-                City = "Mayberry",
-                State = "NC"
-            });
+            _contactService = contactService;
+
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            LoadContactItems();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
-        private ObservableCollection<Address> _Addresses = new ObservableCollection<Address>();
-        public ObservableCollection<Address> Addresses
+        private ObservableCollection<ContactItem> _ContactItems = new ObservableCollection<ContactItem>();
+        public ObservableCollection<ContactItem> ContactItems
         {
-            get => _Addresses;
+            get => _ContactItems;
             set
             {
-                if (_Addresses != value)
+                if (_ContactItems != value)
                 {
-                    _Addresses = value;
-                    OnPropertyChanged(nameof(Addresses));
+                    _ContactItems = value;
+                    OnPropertyChanged(nameof(ContactItems));
                 }
             }
         }
 
-        public bool CanDeleteAddresses
+        public async Task LoadContactItems()
         {
-            get => Addresses.Count > 1;
-        }
+            var contacts = await _contactService.GetContactList();
 
-        private ICommand _DeleteAddressCommand;
-        public ICommand DeleteAddressCommand
-        {
-            get { return _DeleteAddressCommand ??= new Command<Address>((address) => DeleteAddress(address)); }
-        }
-
-        private void DeleteAddress(Address address)
-        {
-            if (Addresses.Contains(address) && CanDeleteAddresses)
+            foreach (var contactItem in contacts)
             {
-                Addresses.Remove(address);
-                OnPropertyChanged(nameof(CanDeleteAddresses));
+                ContactItems.Add(contactItem);
             }
         }
 
-        private ICommand _AddAddressCommand;
-        public ICommand AddAddressCommand
+        public bool CanDeleteContacts
         {
-            get { return _AddAddressCommand ??= new Command<Address>((address) => AddOrUpdateAddress(address)); }
+            get => ContactItems.Count > 1;
         }
 
-        private void AddOrUpdateAddress(Address address)
+        private ICommand _DeleteContactCommand;
+        public ICommand DeleteContactCommand
         {
-            if (!Addresses.Any(a => a.Id == address.Id))
+            get { return _DeleteContactCommand ??= new Command<ContactItem>((contactItem) => DeleteContactItem(contactItem)); }
+        }
+
+        private void DeleteContactItem(ContactItem contactItem)
+        {
+            if (ContactItems.Contains(contactItem) && CanDeleteContacts)
             {
-                Addresses.Add(address);
+                ContactItems.Remove(contactItem);
+                OnPropertyChanged(nameof(CanDeleteContacts));
+            }
+        }
+
+        private ICommand _AddOrUpdateContactCommand;
+        public ICommand AddAddressCommand
+        {
+            get { return _AddOrUpdateContactCommand ??= new Command<ContactItem>((contactItem) => AddOrUpdateContact(contactItem)); }
+        }
+
+        private void AddOrUpdateContact(ContactItem contactItem)
+        {
+            if (!ContactItems.Any(a => a.Id == contactItem.Id))
+            {
+                ContactItems.Add(contactItem);
             }
             else
             {
-                var index = Addresses.IndexOf(address);
-                Addresses.Remove(address);
-                Addresses.Insert(index, address);
+                var index = ContactItems.IndexOf(ContactItems.Single(c => c.Id == contactItem.Id));
+                ContactItems.Remove(contactItem);
+                ContactItems.Insert(index, contactItem);
             }
-            OnPropertyChanged(nameof(CanDeleteAddresses));
+            OnPropertyChanged(nameof(CanDeleteContacts));
         }
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            if (query.Any(q => q.Key == AppShell.ADDRESS_PARAMETER))
+            if (query.Any(q => q.Key == AppShell.CONTACT_PARAMETER))
             {
-                var address = query[AppShell.ADDRESS_PARAMETER] as Address;
-                if (address != null)
+                var contact = query[AppShell.CONTACT_PARAMETER] as Models.Contact;
+                if (contact != null)
                 {
-                    AddOrUpdateAddress(address);
-                    OnPropertyChanged(nameof(Addresses));
+                    var contactItem = new ContactItem
+                    {
+                        Id = contact.Id,
+                        Name = contact.Name,
+                    };
+                    AddOrUpdateContact(contactItem);
+                    OnPropertyChanged(nameof(ContactItems));
                 }
             }
         }

@@ -52,6 +52,7 @@
 	  <None Remove="Resources\Images\add_white.png" />
 	  <None Remove="Resources\Images\delete_black.png" />
 	  <None Remove="Resources\Images\delete_disabled.png" />
+	  <None Remove="Resources\Images\person.png" />
 	</ItemGroup>
 
 
@@ -67,8 +68,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="EditAddressPage.xaml.cs">
-	    <DependentUpon>EditAddressPage.xaml</DependentUpon>
+	  <Compile Update="EditContactPage.xaml.cs">
+	    <DependentUpon>EditContactPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="MainViewPage.xaml.cs">
 	    <DependentUpon>MainViewPage.xaml</DependentUpon>
@@ -91,7 +92,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="EditAddressPage.xaml">
+	  <MauiXaml Update="EditContactPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MainViewPage.xaml">
