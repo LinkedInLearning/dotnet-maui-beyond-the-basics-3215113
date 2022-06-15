@@ -6,56 +6,10 @@
              Title="MainView Page"
              x:Name="MainView"
              Shell.NavBarHasShadow="true">
-    <Shell.TitleView>
-        <AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill">
-            <Image Source="add_white.png"
-                   HeightRequest="25"
-                   WidthRequest="25"
-                   Margin="0, 0, 10, 0"
-                   AbsoluteLayout.LayoutFlags="PositionProportional"
-                   AbsoluteLayout.LayoutBounds="1, .5">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Image.GestureRecognizers>
-            </Image>
-            <Label Text="{Binding Source={x:Reference MainView}, Path=Title}" 
-                   TextColor="White" FontSize="18" FontAttributes="Bold"
-                   AbsoluteLayout.LayoutFlags="PositionProportional"
-                   AbsoluteLayout.LayoutBounds=".5, .5" />
-        </AbsoluteLayout>
-    </Shell.TitleView>
-    <CollectionView ItemsSource="{Binding ContactItems}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame Margin="5, 1, 5, 1" Padding="5">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Contact_Tapped" />
-                    </Frame.GestureRecognizers>
-                    <Grid ColumnDefinitions="75, *, 50" RowDefinitions="30">
-                        <Label Grid.Column="0" Grid.Row="0" Text="Name:" />
-                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" />
-                        <Image HeightRequest="30"  Grid.Column="2" Grid.Row="0" VerticalOptions="Center" IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=CanDeleteContacts}">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=DeleteContactCommand}" CommandParameter="{Binding .}" />
-                            </Image.GestureRecognizers>
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <VisualState.Setters>
-                                            <Setter Property="Source" Value="delete_black.png" />
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                    <VisualState x:Name="Disabled">
-                                        <VisualState.Setters>
-                                            <Setter Property="Source" Value="delete_disabled.png" />
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                        </Image>
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <Grid RowDefinitions="30, 30, 30, *, 50" ColumnDefinitions="*">
+        <Label Grid.Row="0" Grid.Column="0" Text="{Binding Path=Address.Address1}" />
+        <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Address.Address2}" />
+        <Label Grid.Row="2" Grid.Column="0" Text="{Binding Path=Address.City}" />
+        <Button Grid.Row="4" Grid.Column="0" Text="Refresh" Command="{Binding LoadAddressCommand}" />
+    </Grid>
 </ContentPage>

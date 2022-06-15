@@ -68,16 +68,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="EditContactPage.xaml.cs">
-	    <DependentUpon>EditContactPage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="MainViewPage.xaml.cs">
 	    <DependentUpon>MainViewPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Prompts.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Prompts.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\ErrorEntry.xaml.cs">
 	    <DependentUpon>ErrorEntry.xaml</DependentUpon>
@@ -85,22 +77,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Prompts.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Prompts.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="EditContactPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="MainViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ErrorEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="ValueConverters\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiBeyondHideInfoBar="True" /></VisualStudio></ProjectExtensions>
