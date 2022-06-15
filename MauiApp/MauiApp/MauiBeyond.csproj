@@ -85,10 +85,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="ValueConverters\" />
-	</ItemGroup>
-
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiBeyondHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

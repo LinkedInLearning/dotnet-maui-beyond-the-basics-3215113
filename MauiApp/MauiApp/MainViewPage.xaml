@@ -2,14 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:MauiBeyond.ViewModels"
+             xmlns:converters="clr-namespace:MauiBeyond.ValueConverters"
              x:Class="MauiBeyond.MainViewPage"
              Title="MainView Page"
              x:Name="MainView"
              Shell.NavBarHasShadow="true">
+    <ContentPage.Resources>
+        <converters:AddressConverter x:Key="addressConverter" />
+    </ContentPage.Resources>
     <Grid RowDefinitions="30, 30, 30, *, 50" ColumnDefinitions="*">
-        <Label Grid.Row="0" Grid.Column="0" Text="{Binding Path=Address.Address1}" />
-        <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Address.Address2}" />
-        <Label Grid.Row="2" Grid.Column="0" Text="{Binding Path=Address.City}" />
+        <Label Grid.Row="0" Grid.Column="0" Text="{Binding Path=Address.Address1, FallbackValue='Unable to retrieve address'}"  />
+        <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Address.Address2, FallbackValue='Unable to retrieve address'}" />
+        <Label Grid.Row="2" Grid.Column="0">
+            <Label.Text>
+                <MultiBinding Converter="{StaticResource addressConverter}">
+                    <Binding Path="Address.City" />
+                    <Binding Path="Address.State" />
+                    <Binding Path="Address.PostalCode" />
+                </MultiBinding>
+            </Label.Text>
+        </Label>
         <Button Grid.Row="4" Grid.Column="0" Text="Refresh" Command="{Binding LoadAddressCommand}" />
     </Grid>
 </ContentPage>
