@@ -49,10 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\add_white.png" />
-	  <None Remove="Resources\Images\delete_black.png" />
-	  <None Remove="Resources\Images\delete_disabled.png" />
-	  <None Remove="Resources\Images\person.png" />
+	  <None Remove="Resources\Images\current_entry.png" />
 	</ItemGroup>
 
 
@@ -71,8 +68,8 @@
 	  <Compile Update="MainViewPage.xaml.cs">
 	    <DependentUpon>MainViewPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ErrorEntry.xaml.cs">
-	    <DependentUpon>ErrorEntry.xaml</DependentUpon>
+	  <Compile Update="Views\FocusedEntry.xaml.cs">
+	    <DependentUpon>FocusedEntry.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -80,9 +77,13 @@
 	  <MauiXaml Update="MainViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ErrorEntry.xaml">
+	  <MauiXaml Update="Views\FocusedEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Interfaces\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiBeyondHideInfoBar="True" /></VisualStudio></ProjectExtensions>

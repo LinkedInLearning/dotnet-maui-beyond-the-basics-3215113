@@ -2,26 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:MauiBeyond.ViewModels"
-             xmlns:converters="clr-namespace:MauiBeyond.ValueConverters"
+             xmlns:views="clr-namespace:MauiBeyond.Views"
              x:Class="MauiBeyond.MainViewPage"
              Title="MainView Page"
              x:Name="MainView"
              Shell.NavBarHasShadow="true">
-    <ContentPage.Resources>
-        <converters:AddressConverter x:Key="addressConverter" />
-    </ContentPage.Resources>
-    <Grid RowDefinitions="30, 30, 30, *, 50" ColumnDefinitions="*">
-        <Label Grid.Row="0" Grid.Column="0" Text="{Binding Path=Address.Address1, FallbackValue='Unable to retrieve address'}"  />
-        <Label Grid.Row="1" Grid.Column="0" Text="{Binding Path=Address.Address2, FallbackValue='Unable to retrieve address'}" />
-        <Label Grid.Row="2" Grid.Column="0">
-            <Label.Text>
-                <MultiBinding Converter="{StaticResource addressConverter}">
-                    <Binding Path="Address.City" />
-                    <Binding Path="Address.State" />
-                    <Binding Path="Address.PostalCode" />
-                </MultiBinding>
-            </Label.Text>
-        </Label>
-        <Button Grid.Row="4" Grid.Column="0" Text="Refresh" Command="{Binding LoadAddressCommand}" />
+    <Grid RowDefinitions="auto, auto, auto, auto, auto, *, 50" ColumnDefinitions="75, *, 50">
+        <Label Grid.Row="0" Grid.Column="0" Text="Address 1:"  />
+        <views:FocusedEntry x:Name="address1" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Address.Address1}" />
+        <Image x:Name="focusIndicator" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Source="current_entry.png" HeightRequest="25" Margin="0, 10, 0, 0" VerticalOptions="Start"  />
+        <views:FocusedEntry x:Name="address2"  Grid.Row="1" Grid.Column="1" Text="{Binding Path=Address.Address2}" />
+        <Label Grid.Row="2" Grid.Column="0" Text="City:"  />
+        <views:FocusedEntry x:Name="city" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Address.City}" />
+        <Label Grid.Row="3" Grid.Column="0" Text="State:"  />
+        <views:FocusedEntry x:Name="state" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Address.State}" />
+        <Label Grid.Row="4" Grid.Column="0" Text="Postal Code:"  />
+        <views:FocusedEntry x:Name="postalCode" Grid.Row="4" Grid.Column="1" Text="{Binding Path=Address.PostalCode}" />
+        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Text="Refresh" Margin="10, 0, 10, 0" Command="{Binding LoadAddressCommand}" />
     </Grid>
 </ContentPage>

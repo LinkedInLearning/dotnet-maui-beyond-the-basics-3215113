@@ -1,6 +1,4 @@
-﻿using MauiBeyond.Interfaces;
-using MauiBeyond.Services;
-using MauiBeyond.ViewModels;
+﻿using MauiBeyond.ViewModels;
 
 namespace MauiBeyond;
 
@@ -21,8 +19,6 @@ public static class MauiProgram
         builder.Services.AddTransient<MainViewPage>();
 
         builder.Services.AddTransient<MainViewModel>();
-
-		builder.Services.AddTransient<IAddressService, AddressService>();
 
         return builder.Build();
 	}
