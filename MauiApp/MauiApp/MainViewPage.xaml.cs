@@ -45,6 +45,6 @@ public partial class MainViewPage : ContentPage
 
     private void MoveIndicator(int distance)
     {
-        focusIndicator.TranslateTo(0, distance, 400);
+        focusIndicator.TranslateTo(0, distance, 400, Easing.BounceOut);
     }
 }

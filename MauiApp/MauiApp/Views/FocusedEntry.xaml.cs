@@ -13,12 +13,12 @@ public partial class FocusedEntry : Entry
 
     private void MainEntry_Unfocused(object sender, FocusEventArgs e)
     {
-        mainEntry.ScaleYTo(1, 500);
+        mainEntry.ScaleYTo(1, 500, Easing.BounceOut);
     }
 
     private void MainEntry_Focused(object sender, FocusEventArgs e)
     {
-        mainEntry.ScaleYTo(1.5, 500);
+        mainEntry.ScaleYTo(1.5, 500, Easing.BounceIn);
     }
 
     public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(FocusedEntry), string.Empty, BindingMode.TwoWay, null);
