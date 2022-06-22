@@ -9,5 +9,31 @@ namespace MauiBeyond.ViewModels
         public MainViewModel()
         {
         }
+
+        private bool _ImageRequired = false;
+
+        public bool ImageRequired
+        {
+            get => _ImageRequired;
+            set
+            {
+                if (_ImageRequired != value)
+                {
+                    _ImageRequired = value;
+                    OnPropertyChanged(nameof(ImageRequired));
+                }
+            }
+        }
+
+        private ICommand _ToggleImageRequiredCommand;
+        public ICommand ToggleImageRequiredCommand
+        {
+            get
+            {
+                return _ToggleImageRequiredCommand ??= new Command(() => { 
+                    ImageRequired = !ImageRequired; 
+                });
+            }
+        }
     }
 }
