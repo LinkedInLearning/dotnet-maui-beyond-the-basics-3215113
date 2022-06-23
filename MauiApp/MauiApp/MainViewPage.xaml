@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:MauiBeyond.ViewModels"
-             xmlns:views="clr-namespace:MauiBeyond.Views"
+             xmlns:triggers="clr-namespace:MauiBeyond.Triggers"
              x:Class="MauiBeyond.MainViewPage"
              Title="MainView Page"
-             x:Name="MainView"
              Shell.NavBarHasShadow="true">
-    <Grid RowDefinitions="auto, auto, auto, auto, auto, *, 50" ColumnDefinitions="75, *, 50">
+    <Grid RowDefinitions="auto, auto, auto, auto, auto, *, 65" ColumnDefinitions="75, *, 50">
         <Label Grid.Row="0" Grid.Column="0" Text="Address 1:"  />
-        <views:FocusedEntry x:Name="address1" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Address.Address1}" />
-        <Image x:Name="focusIndicator" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Source="current_entry.png" HeightRequest="25" Margin="0, 10, 0, 0" VerticalOptions="Start"  />
-        <views:FocusedEntry x:Name="address2"  Grid.Row="1" Grid.Column="1" Text="{Binding Path=Address.Address2}" />
+        <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Path=Address.Address1}" />
+        <Image Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Source="current_entry.png" HeightRequest="25" Margin="0, 10, 0, 0" VerticalOptions="Start"  />
+        <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Path=Address.Address2}" />
         <Label Grid.Row="2" Grid.Column="0" Text="City:"  />
-        <views:FocusedEntry x:Name="city" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Address.City}" />
+        <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Path=Address.City}" />
         <Label Grid.Row="3" Grid.Column="0" Text="State:"  />
-        <views:FocusedEntry x:Name="state" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Address.State}" />
+        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Path=Address.State}" />
         <Label Grid.Row="4" Grid.Column="0" Text="Postal Code:"  />
-        <views:FocusedEntry x:Name="postalCode" Grid.Row="4" Grid.Column="1" Text="{Binding Path=Address.PostalCode}" />
-        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Text="Refresh" Margin="10, 0, 10, 0" Command="{Binding LoadAddressCommand}" />
+        <Entry Grid.Row="4" Grid.Column="1" Text="{Binding Path=Address.PostalCode}" />
+        <Button x:Name="refreshButton" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Text="Refresh" Margin="20, 0, 20, 20">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                Offset="20,20"
+                Radius="40"
+                Opacity="0.8" />
+            </Button.Shadow>
+            <Button.Triggers>
+                <EventTrigger Event="Clicked">
+                    <triggers:TappedAnimationTrigger />
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
     </Grid>
 </ContentPage>

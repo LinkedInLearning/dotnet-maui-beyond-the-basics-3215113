@@ -68,22 +68,12 @@
 	  <Compile Update="MainViewPage.xaml.cs">
 	    <DependentUpon>MainViewPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\FocusedEntry.xaml.cs">
-	    <DependentUpon>FocusedEntry.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="MainViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\FocusedEntry.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Interfaces\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiBeyondHideInfoBar="True" /></VisualStudio></ProjectExtensions>
