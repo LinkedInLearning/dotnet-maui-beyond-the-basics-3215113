@@ -48,10 +48,6 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="Resources\Images\current_entry.png" />
-	</ItemGroup>
-
 
 	<ItemGroup>
 	  <Resource Include="names.sqlite3">
