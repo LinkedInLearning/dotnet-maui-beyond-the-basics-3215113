@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.GridPage"
-             BackgroundColor="DarkGray">
+             BackgroundColor="DarkGray"
+             Title="Grid">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60" />
