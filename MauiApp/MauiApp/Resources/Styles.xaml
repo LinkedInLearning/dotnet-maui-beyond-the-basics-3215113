@@ -349,6 +349,12 @@
         <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Light={StaticResource LightGray}, Dark={StaticResource DarkGray}}" />
     </Style>
 
+    <Style TargetType="Label"
+       Class="FlyoutItemLabelStyle">
+        <Setter Property="TextColor"
+            Value="Black" />
+    </Style>
+
     <Style BasedOn="{StaticResource BaseStyle}" TargetType="ShellItem" ApplyToDerivedTypes="True" />
 
     <Style TargetType="NavigationPage">
