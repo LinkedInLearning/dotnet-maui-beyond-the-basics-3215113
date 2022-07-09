@@ -5,13 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiBeyond"
     Shell.FlyoutBehavior="Flyout">
-
-    <ShellContent
-        Title="Grid"
-        ContentTemplate="{DataTemplate local:GridPage}"
-        Route="GridPage" />
-    <ShellContent
-        Title="Stack"
-        ContentTemplate="{DataTemplate local:StackPage}"
-        Route="StackPage" />
+    <FlyoutItem Title="Grid">
+        <ShellContent ContentTemplate="{DataTemplate local:GridPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Stack">
+        <ShellContent ContentTemplate="{DataTemplate local:StackPage}" />
+    </FlyoutItem>
 </Shell>
