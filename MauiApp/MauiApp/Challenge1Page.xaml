@@ -3,42 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.Challenge1Page"
              Title="Challenge 1 Page">
-    <Grid ColumnDefinitions="150, *" RowDefinitions="50, 200, *">
-        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Cat Question" FontSize="20" VerticalTextAlignment="Center" Margin="10, 0, 0, 0" />
-        <AbsoluteLayout Grid.Row="1" Grid.Column="0">
-            <Image Source="images/trouble_cat.jpg" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" />
-            <Label Text="Trouble Cat" HorizontalTextAlignment="Center" FontSize="20" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" AbsoluteLayout.LayoutBounds="0, 1, 1, 25" />
-        </AbsoluteLayout>
-        <Label Grid.Row="1" Grid.Column="1" Margin="10, 0, 0, 0" VerticalTextAlignment="Center" Text="How cute do you think this cat is?" />
-        <TableView Grid.Row="2" Grid.ColumnSpan="2" RowHeight="50" Margin="20, 10, 0, 0">
-            <TableRoot>
-                <TableSection>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0">
-                            <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="SuperCute!" />
-                            <RadioButton IsChecked="True" GroupName="Question" BackgroundColor="Transparent"/>
-                        </StackLayout>
-                    </ViewCell>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0">
-                            <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="I can't believe how cute this cat is" />
-                            <RadioButton GroupName="Question" BackgroundColor="Transparent"/>
-                        </StackLayout>
-                    </ViewCell>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0">
-                            <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="Meh, I've seen cuter" />
-                            <RadioButton GroupName="Question" BackgroundColor="Transparent"/>
-                        </StackLayout>
-                    </ViewCell>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0">
-                            <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="That doesn't look like a dog" />
-                            <RadioButton GroupName="Question" BackgroundColor="Transparent"/>
-                        </StackLayout>
-                    </ViewCell>
-                </TableSection>
-            </TableRoot>
-        </TableView>
-    </Grid>
+    <ScrollView>
+        <Grid ColumnDefinitions="150, *" RowDefinitions="50, 200, *">
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Cat Question" FontSize="20" VerticalTextAlignment="Center" Margin="10, 0, 0, 0" />
+            <AbsoluteLayout Grid.Row="1" Grid.Column="0">
+                <Image Source="trouble_cat.jpg" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" />
+                <Label Text="Trouble Cat" HorizontalTextAlignment="Center" FontSize="20" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" AbsoluteLayout.LayoutBounds="0, 1, 1, 25" />
+            </AbsoluteLayout>
+            <Label Grid.Row="1" Grid.Column="1" Margin="10, 0, 0, 0" VerticalTextAlignment="Center" Text="How cute do you think this cat is?" />
+            <TableView Grid.Row="2" Grid.ColumnSpan="2" RowHeight="50" Margin="20, 10, 0, 0" HeightRequest="200">
+                <TableRoot>
+                    <TableSection>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0">
+                                <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="SuperCute!" />
+                                <RadioButton IsChecked="True" GroupName="Question" BackgroundColor="Transparent"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0">
+                                <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="I can't believe how cute this cat is" />
+                                <RadioButton GroupName="Question" BackgroundColor="Transparent"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0">
+                                <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="Meh, I've seen cuter" />
+                                <RadioButton GroupName="Question" BackgroundColor="Transparent"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="20, 0, 0, 0">
+                                <Label HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="That doesn't look like a dog" />
+                                <RadioButton GroupName="Question" BackgroundColor="Transparent"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </Grid>
+    </ScrollView>
 </ContentPage>
