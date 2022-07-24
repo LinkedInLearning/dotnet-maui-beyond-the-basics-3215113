@@ -6,8 +6,8 @@
     <CollectionView  ItemsSource="{Binding Names}" SelectionMode="None"  >
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BorderColor="Black">
-                    <Label Text="{Binding .}" />
+                <Frame BorderColor="Black" BackgroundColor="White">
+                    <Label Text="{Binding .}" TextColor="Black" />
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
