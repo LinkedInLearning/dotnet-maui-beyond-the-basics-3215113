@@ -23,10 +23,10 @@
         </CollectionView.GroupFooterTemplate>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BorderColor="Black" >
+                <Frame BorderColor="Black" BackgroundColor="White" >
                     <StackLayout>
-                        <Label Text="{Binding Name}" />
-                        <Label Text="{Binding Title}" />
+                        <Label Text="{Binding Name}" TextColor="Black" />
+                        <Label Text="{Binding Title}" TextColor="Black" />
                     </StackLayout>
                 </Frame>
             </DataTemplate>
