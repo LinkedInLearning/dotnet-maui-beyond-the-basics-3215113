@@ -15,8 +15,8 @@
         </CollectionView.GroupHeaderTemplate>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BorderColor="Black" HeightRequest="80">
-                    <Label Text="{Binding Name}" />
+                <Frame BorderColor="Black" HeightRequest="80" BackgroundColor="White">
+                    <Label Text="{Binding Name}" TextColor="Black" />
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
