@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.CollectionViewPage"
              Title="CollectionView Page">
-    <CollectionView  ItemsSource="{Binding ListItems}" SelectionMode="None">
+    <CollectionView 
+        ItemsSource="{Binding ListItems}" 
+        SelectionMode="None">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame BorderColor="Black">
+                <Frame BorderColor="Black" BackgroundColor="White">
                     <StackLayout>
-                        <Label Text="{Binding Name}" />
-                        <Label Text="{Binding Title}" />
+                        <Label Text="{Binding Name}" TextColor="Black" />
+                        <Label Text="{Binding Title}" TextColor="Black" />
                     </StackLayout>
                 </Frame>
             </DataTemplate>
