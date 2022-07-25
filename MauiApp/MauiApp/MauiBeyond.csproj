@@ -48,19 +48,24 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <AndroidResource Remove="Models\**" />
+	  <Compile Remove="Models\**" />
+	  <EmbeddedResource Remove="Models\**" />
+	  <MauiCss Remove="Models\**" />
+	  <MauiXaml Remove="Models\**" />
+	  <None Remove="Models\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MauiBeyond.Views\MauiBeyond.Views.csproj" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 	  <Resource Include="names.sqlite3">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Resource>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\MauiBeyond.Views\MauiBeyond.Views.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,10 +81,6 @@
 	  <MauiXaml Update="Views\NameView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiBeyondHideInfoBar="True" /></VisualStudio></ProjectExtensions>
