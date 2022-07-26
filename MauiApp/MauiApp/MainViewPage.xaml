@@ -8,7 +8,7 @@
     <CollectionView ItemsSource="{Binding Addresses}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Margin="5, 1, 5, 1" Padding="5">
+                <Frame Margin="5, 1, 5, 1" Padding="5" BackgroundColor="Transparent">
                     <Grid ColumnDefinitions="75, *, 50" RowDefinitions="30, 30, 30">
                         <Label Grid.Column="0" Grid.Row="0" Text="Address:" />
                         <Label Grid.Column="1" Grid.Row="0" Text="{Binding Address1}" />

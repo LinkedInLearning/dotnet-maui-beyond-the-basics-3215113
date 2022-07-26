@@ -61,10 +61,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="MainViewPage.xaml.cs">
 	    <DependentUpon>MainViewPage.xaml</DependentUpon>
 	  </Compile>
