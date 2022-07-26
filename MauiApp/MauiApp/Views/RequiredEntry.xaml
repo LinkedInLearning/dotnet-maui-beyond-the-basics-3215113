@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.Views.RequiredEntry"
              x:Name="RequiredEntryView">
-    <Frame x:Name="mainFrame" Margin="0,0,0,0" Padding="0,0,0,0">
+    <Frame x:Name="mainFrame" Margin="0,0,0,0" Padding="0,0,0,0" BackgroundColor="Transparent">
         <Entry x:Name="mainEntry" Text="{Binding Text, Source={x:Reference RequiredEntryView}}" />
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="CommonStates">
