@@ -1,9 +1,11 @@
 
+using MauiBeyond.ViewModels;
+
 namespace MauiBeyond;
 
-public partial class MainViewPage : ContentPage
+public partial class MainViewPage : BasePage<MainViewModel>
 {
-	public MainViewPage()
+	public MainViewPage(MainViewModel viewModel) : base(viewModel)
     {
         InitializeComponent();
     }
