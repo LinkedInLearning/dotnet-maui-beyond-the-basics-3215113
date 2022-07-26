@@ -6,7 +6,7 @@
         <VisualStateGroup x:Name="CommonStates">
             <VisualState Name="Valid">
                 <VisualState.Setters>
-                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
                     <Setter Property="PlaceholderColor" Value="Grey" />
                 </VisualState.Setters>
             </VisualState>
