@@ -57,14 +57,6 @@
 	  <None Remove="Models\**" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="SomeXml.xml" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="SomeXml.xml" />
-	</ItemGroup>
-
 
 	<ItemGroup>
 	  <Resource Include="names.sqlite3">
