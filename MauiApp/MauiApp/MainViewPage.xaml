@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<pages:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBeyond.MainViewPage"
              xmlns:nameviews="clr-namespace:MauiBeyond.Views"
-             xmlns:pages="clr-namespace:MauiBeyond"
-             xmlns:viewModels="clr-namespace:MauiBeyond.ViewModels"
-             Title="MainView Page"
-             x:TypeArguments="viewModels:MainViewModel">
+             Title="MainView Page">
     <VerticalStackLayout>
-        <nameviews:NameView Name="{Binding Path='ViewModel.Name'}"/>
+        <nameviews:NameView Name="{Binding Path='Name'}"/>
     </VerticalStackLayout>
-</pages:BasePage>
+</ContentPage>
