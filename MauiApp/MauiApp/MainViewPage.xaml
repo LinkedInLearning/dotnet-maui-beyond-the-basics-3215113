@@ -27,18 +27,18 @@
     <CollectionView ItemsSource="{Binding Addresses}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Margin="5, 1, 5, 1" Padding="5">
+                <Frame Margin="5, 1, 5, 1" Padding="5" BackgroundColor="White">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Address_Tapped" />
                     </Frame.GestureRecognizers>
                     <Grid ColumnDefinitions="75, *, 50" RowDefinitions="30, 30, 30">
-                        <Label Grid.Column="0" Grid.Row="0" Text="Address:" />
-                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Address1}" />
-                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Address2}" />
+                        <Label Grid.Column="0" Grid.Row="0" Text="Address:" TextColor="Black" />
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Address1}" TextColor="Black"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Address2}" TextColor="Black" />
                         <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Spacing="0">
-                            <Label Padding="0, 0, 5, 0" Margin="0" Text="{Binding City, StringFormat='{0},'}" />
-                            <Label Padding="0" Margin="0, 0, 5, 0"  Text="{Binding State}" />
-                            <Label Padding="0" Margin="0"  Text="{Binding PostalCode}" />
+                            <Label Padding="0, 0, 5, 0" Margin="0" Text="{Binding City, StringFormat='{0},'}" TextColor="Black" />
+                            <Label Padding="0" Margin="0, 0, 5, 0"  Text="{Binding State}" TextColor="Black" />
+                            <Label Padding="0" Margin="0"  Text="{Binding PostalCode}" TextColor="Black" />
                         </HorizontalStackLayout>
                         <Image HeightRequest="30"  Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="Center" IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=CanDeleteAddresses}">
                             <Image.GestureRecognizers>
