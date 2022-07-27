@@ -49,7 +49,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\current_entry.png" />
+	  <AndroidResource Remove="Interfaces\**" />
+	  <Compile Remove="Interfaces\**" />
+	  <EmbeddedResource Remove="Interfaces\**" />
+	  <MauiCss Remove="Interfaces\**" />
+	  <MauiXaml Remove="Interfaces\**" />
+	  <None Remove="Interfaces\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\current_entry_dark.png" />
+	  <None Remove="Resources\Images\current_entry_light.png" />
 	</ItemGroup>
 
 
@@ -61,7 +71,6 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -80,10 +89,6 @@
 	  <MauiXaml Update="Views\FocusedEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Interfaces\" />
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiBeyondHideInfoBar="True" /></VisualStudio></ProjectExtensions>

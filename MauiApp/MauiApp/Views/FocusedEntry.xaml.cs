@@ -20,11 +20,4 @@ public partial class FocusedEntry : Entry
     {
         mainEntry.ScaleYTo(1.5, 500);
     }
-
-    public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(FocusedEntry), string.Empty, BindingMode.TwoWay, null);
-    public string Text
-    {
-        get => (string)GetValue(TextProperty);
-        set => SetValue(TextProperty, value);
-    }
 }
