@@ -7,17 +7,20 @@ using System.Threading.Tasks;
 
 namespace MauiBeyond.ValueConverters
 {
-    public class OneFilledValueConverter : IValueConverter
+    public class OneFilledValueConverter : IMultiValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            string valueOne = value as string;
-            string valueTwo = parameter as string;
+            if (values == null || values.Length == 0) return null;
 
-            return !string.IsNullOrEmpty(valueOne) || !string.IsNullOrEmpty(valueTwo);
+            string valueOne = values[0] as string;
+            string valueTwo = values[1] as string;
+            return !string.IsNullOrEmpty(valueOne) ||
+                !string.IsNullOrEmpty(valueTwo);
+
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             return null;
         }

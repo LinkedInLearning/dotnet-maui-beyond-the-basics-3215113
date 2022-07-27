@@ -16,9 +16,23 @@
         <Label Text="City:" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" />
         <Entry Grid.Row="2" Grid.Column="1" Text="{Binding City}" />
         <Label Text="State:" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center" />
-        <views:ErrorEntry Grid.Row="3" Grid.Column="1" Text="{Binding State}" />
+        <views:ErrorEntry Grid.Row="3" Grid.Column="1" Text="{Binding State}">
+            <views:ErrorEntry.IsValid>
+                <MultiBinding Converter="{StaticResource OneFilledValueConverter}">
+                    <Binding Path="State" />
+                    <Binding Path="PostalCode" />
+                </MultiBinding>
+            </views:ErrorEntry.IsValid>
+        </views:ErrorEntry>
         <Label Text="Postal Code:" Grid.Row="4" Grid.Column="0" VerticalTextAlignment="Center" />
-        <views:ErrorEntry Grid.Row="4" Grid.Column="1" Text="{Binding PostalCode}" />
+        <views:ErrorEntry Grid.Row="4" Grid.Column="1" Text="{Binding PostalCode}">
+            <views:ErrorEntry.IsValid>
+                <MultiBinding Converter="{StaticResource OneFilledValueConverter}">
+                    <Binding Path="State" />
+                    <Binding Path="PostalCode" />
+                </MultiBinding>
+            </views:ErrorEntry.IsValid>
+        </views:ErrorEntry>
         <AbsoluteLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
             <Button Text="Save" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, .5, 1" Margin="0, 0, 5, 0" Command="{Binding SaveAddressCommand}" />
             <Button Text="Cancel" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1, 0, .5, 1" Margin="5, 0, 0, 0" Clicked="Cancel_Button_Clicked" />
