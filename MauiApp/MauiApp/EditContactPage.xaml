@@ -5,13 +5,13 @@
              Title="Contact"
              Shell.PresentationMode="Modal">
     <Grid ColumnDefinitions="100, *" RowDefinitions="100, 50, 50, 50, *, 50" Margin="10" BackgroundColor="White">
-        <Image Grid.Row="0" Grid.Column="0" Source="{Binding Path=ImageData}" BackgroundColor="White" />
+        <Image Grid.Row="0" Grid.Column="0" Source="{Binding Path=ImageData, TargetNullValue=person.png}" BackgroundColor="White" />
         <Label Text="Name:" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" TextColor="Black" />
-        <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Path=Contact.Name}" TextColor="Black" />
+        <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Path=Contact.Name, FallbackValue='Unable to Retrieve'}" TextColor="Black" />
         <Label Text="Title:" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" TextColor="Black" />
-        <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Path=Contact.Title}" TextColor="Black" />
+        <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Path=Contact.Title, FallbackValue='Unable to Retrieve'}" TextColor="Black" />
         <Label Text="Employer:" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center" TextColor="Black" />
-        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Path=Contact.Employer}" TextColor="Black" />
+        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Path=Contact.Employer, FallbackValue='Unable to Retrieve'}" TextColor="Black" />
         <AbsoluteLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
             <Button Text="Save" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, .5, 1" Margin="0, 0, 5, 0" Command="{Binding SaveContactCommand}" IsEnabled="{Binding Path=Contact, Converter={StaticResource notNull}}" BorderColor="Black" />
             <Button Text="Cancel" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1, 0, .5, 1" Margin="5, 0, 0, 0" Clicked="Cancel_Button_Clicked" BorderColor="Black" />
