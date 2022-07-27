@@ -27,13 +27,13 @@
     <CollectionView ItemsSource="{Binding ContactItems}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame Margin="5, 1, 5, 1" Padding="5">
+                <Frame Margin="5, 1, 5, 1" Padding="5" BackgroundColor="White">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Contact_Tapped" />
                     </Frame.GestureRecognizers>
                     <Grid ColumnDefinitions="75, *, 50" RowDefinitions="30">
-                        <Label Grid.Column="0" Grid.Row="0" Text="Name:" />
-                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" />
+                        <Label Grid.Column="0" Grid.Row="0" Text="Name:" TextColor="Black" />
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" TextColor="Black" />
                         <Image HeightRequest="30"  Grid.Column="2" Grid.Row="0" VerticalOptions="Center" IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=CanDeleteContacts}">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=DeleteContactCommand}" CommandParameter="{Binding .}" />

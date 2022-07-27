@@ -56,6 +56,7 @@ namespace MauiBeyond.Services
         {
             var tcs = new TaskCompletionSource<byte[]>();
 
+            // Simulate this call failing due to a network error, return a null.
             tcs.SetResult(null);
 
             return tcs.Task;
