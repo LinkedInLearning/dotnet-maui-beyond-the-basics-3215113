@@ -17,7 +17,7 @@
         <Entry Grid.Row="4" Grid.Column="1" Text="{Binding Path=Address.PostalCode}" />
         <Button x:Name="refreshButton" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Text="Refresh" Margin="20, 0, 20, 20">
             <Button.Shadow>
-                <Shadow Brush="Black"
+                <Shadow Brush="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
                 Offset="20,20"
                 Radius="40"
                 Opacity="0.8" />
