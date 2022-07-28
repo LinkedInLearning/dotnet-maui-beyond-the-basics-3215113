@@ -12,7 +12,7 @@ namespace MauiBeyond.Animations
         {
             var tcs = new TaskCompletionSource<bool>();
             var startHeight = self.Height;
-            var startWidth = self.Width;
+            var startWidth = self.Width; 
 
             if (easing == null) easing = Easing.Linear;
 
