@@ -10,7 +10,7 @@ namespace MauiBeyond.Triggers
     {
         protected override async void Invoke(Button sender)
         {
-            using (var downAnimation = new Animation(v => sender.Shadow.Offset = new Point(5 - (10 * v), 5 - (10 * v)), 0, 1, Easing.Linear))
+            using (var downAnimation = new Animation(v => sender.Shadow.Offset = new Point(20 - (20 * v), 20 - (20 * v)), 0, 1, Easing.Linear))
             {
                 var tcs1 = new TaskCompletionSource<bool>();
 
@@ -22,7 +22,7 @@ namespace MauiBeyond.Triggers
                     );
             }
 
-            using (var upAnimation = new Animation(v => sender.Shadow.Offset = new Point(5 + (10 * v), 5 + (10 * v)), 0, 1, Easing.Linear))
+            using (var upAnimation = new Animation(v => sender.Shadow.Offset = new Point(0 + (20 * v), 0 + (20 * v)), 0, 1, Easing.Linear))
             {
                 var tcs2 = new TaskCompletionSource<bool>();
 
