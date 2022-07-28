@@ -6,7 +6,7 @@
              x:Name="MainView"
              Shell.NavBarHasShadow="true">
     <StackLayout>
-        <Image x:Name="catImage" Source="trouble.jpg" HeightRequest="250" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+        <Image x:Name="catImage" Source="trouble" HeightRequest="250" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
             </Image.GestureRecognizers>
