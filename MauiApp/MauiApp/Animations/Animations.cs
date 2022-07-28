@@ -16,6 +16,8 @@ namespace MauiBeyond.Animations
 
             if (easing == null) easing = Easing.Linear;
 
+
+            return tcs.Task;
         }
     }
 }
