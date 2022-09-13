@@ -1,7 +1,10 @@
 # .NET MAUI: Beyond the Basics
 This is the repository for the LinkedIn Learning course .NET MAUI: Beyond the Basics. The full course is available from [LinkedIn Learning][lil-course-url].
 
-_See the readme file in the main branch for updated instructions and information._
+![.NET MAUI: Beyond the Basics][lil-thumbnail-url] 
+
+In .NET MAUI: Beyond the Basics, instructor Kevin Ford guides you deeper into MAUI development. This course digs a little deeper into .NET MAUI and examines some of the often-overlooked layouts and features that can help make your development in MAUI more effective and help your apps reach the next level. Kevin explains the layout cycle, then goes into detail on StackLayout vs. Grid, FlexLayout, AbsoluteLayout, and TableView. He goes over the differences in controls for CollectionView and ListView, as well as controlling layouts, collapsing groups, dynamic data loading, and more. Kevin shows you how to reference custom views in XAML and goes into specifying generics, creating markup extensions and view states, and more. He deep dives into advanced data binding with topics like ancestor bindings, binding to views, value converters with multiple bindings, and what to do when data binding goes wrong. Plus, Kevin introduces you to animating views in MAUI and creating custom animations.
+
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
 
@@ -27,8 +30,15 @@ To resolve this issue:
 3. [Course-specific instructions]
 
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+### Instructor
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+Kevin Ford 
+                            
 
+
+                            
+
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/kevin-ford).
+
+[lil-course-url]: https://www.linkedin.com/learning/dot-net-maui-beyond-the-basics
+[lil-thumbnail-url]: https://cdn.lynda.com/course/3215113/3215113-1662758246249-16x9.jpg
